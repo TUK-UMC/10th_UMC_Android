@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오늘 하루는 어땠나요?"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp" />
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="감정우표를 선택해주세요."
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_title" app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+    <TextView
+        android:id="@+id/tv_context"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="선택한 감정우표를 기반으로 맞춤형 질문이 배달됩니다"
+        android:textColor="#000000"
+        android:textSize="8sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_subtitle" app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <ImageView
+        android:id="@+id/iv_emotion_happy"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/happy" app:layout_constraintTop_toBottomOf="@id/tv_context" app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp" /> <TextView
+    android:id="@+id/tv_emotion_happy"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="더없이 행복한 하루였어요" android:textColor="#000000" android:textStyle="bold" app:layout_constraintTop_toBottomOf="@id/iv_emotion_happy" app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="6dp" /><ImageView
+    android:id="@+id/iv_emotion_glad"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:src="@drawable/glad" app:layout_constraintTop_toBottomOf="@id/tv_emotion_happy" app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="20dp" /><TextView
+    android:id="@+id/tv_emotion_glad"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="들뜨고 흥분해요" android:textColor="#000000" android:textStyle="bold" app:layout_constraintTop_toBottomOf="@id/iv_emotion_glad" app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="6dp" />
+    <ImageView
+        android:id="@+id/iv_emotion_soso"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/soso" app:layout_constraintTop_toBottomOf="@id/tv_emotion_glad" app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
+    <TextView
+        android:id="@+id/tv_emotion_soso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="평범한 하루였어요" android:textColor="#000000" android:textStyle="bold" app:layout_constraintTop_toBottomOf="@id/iv_emotion_soso" app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="6dp" />
+    <ImageView
+        android:id="@+id/iv_emotion_sad"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/sad" app:layout_constraintTop_toBottomOf="@id/tv_emotion_soso" app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
+    <TextView
+        android:id="@+id/tv_emotion_sad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="생각이 많아지고 불안해요" android:textColor="#000000" android:textStyle="bold" app:layout_constraintTop_toBottomOf="@id/iv_emotion_sad" app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="6dp" />
+    <ImageView
+        android:id="@+id/iv_emotion_angry"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/angry" app:layout_constraintTop_toBottomOf="@id/tv_emotion_sad" app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
+    <TextView
+        android:id="@+id/tv_emotion_angry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="부글부글 화가 나요" android:textColor="#000000" android:textStyle="bold" app:layout_constraintTop_toBottomOf="@id/iv_emotion_angry" app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="6dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
