@@ -5,4 +5,6 @@
     <string name="title_wish">위시리스트</string>
     <string name="title_bag">장바구니</string>
     <string name="title_profile">프로필</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
