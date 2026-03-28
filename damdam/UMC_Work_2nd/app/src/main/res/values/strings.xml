@@ -16,5 +16,6 @@
     <string name="shop_text_wrap">전체</string>
     <string name="shop_text_tops_shirts"><![CDATA[Tops & T-Shirts]]></string>
     <string name="shop_text_shoes">Shoes</string>
+    <string name="profile_text_edit">프로필 수정</string>
 
 </resources>
