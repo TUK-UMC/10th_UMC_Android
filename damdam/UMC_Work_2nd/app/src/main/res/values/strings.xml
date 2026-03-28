@@ -13,5 +13,8 @@
     <string name="bag_text_empty">장바구니가 비어 있습니다.</string>
     <string name="bag_text_add">제품을 추가하면 여기에 표시됩니다.</string>
     <string name="bag_text_order">주문하기</string>
+    <string name="shop_text_wrap">전체</string>
+    <string name="shop_text_tops_shirts"><![CDATA[Tops & T-Shirts]]></string>
+    <string name="shop_text_shoes">Shoes</string>
 
 </resources>
