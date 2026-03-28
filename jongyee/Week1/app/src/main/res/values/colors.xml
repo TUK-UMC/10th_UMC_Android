@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-</resources>
+    <color name="gray_default">#FF888888</color>
+    <color name="emotion_happy">#FFFFFF00</color>
+    <color name="emotion_excited">#FF0000FF</color>
+    <color name="emotion_normal">#FFFF00FF</color>
+    <color name="emotion_anxious">#FF00FF00</color>
+    <color name="emotion_angry">#FFFF0000</color> </resources>

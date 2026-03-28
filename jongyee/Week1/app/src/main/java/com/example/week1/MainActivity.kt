@@ -1,66 +1,42 @@
 package com.example.week1
-import android.graphics.Color
-import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.example.week1.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var tvHappy: TextView
-    private lateinit var tvExcited: TextView
-    private lateinit var tvNormal: TextView
-    private lateinit var tvAnxious: TextView
-    private lateinit var tvAngry: TextView
+    //ViewBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val ivHappy = findViewById<ImageView>(R.id.iv_happy)
-        val ivExcited = findViewById<ImageView>(R.id.iv_excited)
-        val ivNormal = findViewById<ImageView>(R.id.iv_normal)
-        val ivAnxious = findViewById<ImageView>(R.id.iv_anxious)
-        val ivAngry = findViewById<ImageView>(R.id.iv_angry)
-
-        tvHappy = findViewById(R.id.tv_happy)
-        tvExcited = findViewById(R.id.tv_excited)
-        tvNormal = findViewById(R.id.tv_normal)
-        tvAnxious = findViewById(R.id.tv_anxious)
-        tvAngry = findViewById(R.id.tv_angry)
-
-
-        ivHappy.setOnClickListener {
-            resetTextColors()
-            tvHappy.setTextColor(Color.YELLOW)
-        }
-
-        ivExcited.setOnClickListener {
-            resetTextColors()
-            tvExcited.setTextColor(Color.BLUE)
-        }
-
-        ivNormal.setOnClickListener {
-            resetTextColors()
-            tvNormal.setTextColor(Color.MAGENTA)
-        }
-
-        ivAnxious.setOnClickListener {
-            resetTextColors()
-            tvAnxious.setTextColor(Color.GREEN)
-        }
-
-        ivAngry.setOnClickListener {
-            resetTextColors()
-            tvAngry.setTextColor(Color.RED)
-        }
+        setupEmotionListeners()
     }
 
-    private fun resetTextColors() {
-        tvHappy.setTextColor(Color.BLACK)
-        tvExcited.setTextColor(Color.BLACK)
-        tvNormal.setTextColor(Color.BLACK)
-        tvAnxious.setTextColor(Color.BLACK)
-        tvAngry.setTextColor(Color.BLACK)
+    // 리소스 분리 및 반복문
+    private fun setupEmotionListeners() {
+        val emotions = listOf(
+            Triple(binding.ivHappy, binding.tvHappy, R.color.emotion_happy),
+            Triple(binding.ivExcited, binding.tvExcited, R.color.emotion_excited),
+            Triple(binding.ivNormal, binding.tvNormal, R.color.emotion_normal),
+            Triple(binding.ivAnxious, binding.tvAnxious, R.color.emotion_anxious),
+            Triple(binding.ivAngry, binding.tvAngry, R.color.emotion_angry)
+        )
+
+        emotions.forEach { (imageView, textView, colorRes) ->
+            imageView.setOnClickListener {
+
+                //모든 텍스트 색상 초기화
+                emotions.forEach { (_, tv, _) ->
+                    tv.setTextColor(ContextCompat.getColor(this, R.color.gray_default))
+                }
+                //클릭한 텍스트 색만 변경
+                textView.setTextColor(ContextCompat.getColor(this, colorRes))
+            }
+        }
     }
 }
