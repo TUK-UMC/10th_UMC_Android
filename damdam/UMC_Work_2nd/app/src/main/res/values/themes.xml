@@ -8,4 +8,13 @@
         <item name="color">@android:color/transparent</item>
     </style>
     <style name="Theme.MyApplication" parent="Base.Theme.MyApplication" />
+
+    <style name="MyCustomBottomNav" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemBackground">@android:color/white</item>
+        <item name="itemRippleColor">@android:color/transparent</item>
+        <item name="itemActiveIndicatorStyle">@style/BottomNav_NoIndicator</item>
+        <item name="itemIconTint">@color/bottom_nav_colors</item>
+        <item name="itemTextColor">@color/bottom_nav_colors</item>
+        <item name="labelVisibilityMode">labeled</item>
+    </style>
 </resources>
