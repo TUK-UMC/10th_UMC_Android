@@ -1,0 +1,17 @@
+[33mcommit 097e18a38487a9ee6345b34ee09f9f0042286f3b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32myongwook[m[33m, [m[1;31morigin/yongwook[m[33m)[m
+Author: Tyler <lyon1039@naver.com>
+Date:   Sat Mar 28 18:47:37 2026 +0900
+
+    fragment 화면 구성
+
+[33mcommit da955962d99523902dc4c1ee75307f59a2cd0561[m
+Author: Tyler <lyon1039@naver.com>
+Date:   Sat Mar 28 18:39:55 2026 +0900
+
+    리셋
+
+[33mcommit 4061fce7c72945f94c7f009be2144a66b28c18d4[m[33m ([m[1;32mmain[m[33m)[m
+Author: Tyler <lyon1039@naver.com>
+Date:   Sat Mar 28 18:15:16 2026 +0900
+
+    drawable & layout 세팅
