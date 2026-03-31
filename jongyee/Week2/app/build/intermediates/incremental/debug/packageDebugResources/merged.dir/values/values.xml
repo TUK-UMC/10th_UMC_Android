@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="gray">#FF888888</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">Week2</string>
+    <string name="bag_empty">장바구니가 비어 있습니다.\n제품을 추가하면 여기에 표시됩니다.</string>
+    <string name="btn_order">주문하기</string>
+    <string name="buy_all">전체</string>
+    <string name="buy_shoes">Shoes</string>
+    <string name="buy_tops">Tops &amp; T-Shirts</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_date">9월 4일 목요일</string>
+    <string name="home_discover">Discover</string>
+    <string name="title_bag">장바구니</string>
+    <string name="title_buy">구매하기</string>
+    <string name="title_home">홈</string>
+    <string name="title_profile">프로필</string>
+    <string name="title_wishlist">위시리스트</string>
+    <string name="wishlist_title">위시리스트</string>
+    <style name="Base.Theme.Week2" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        
+    </style>
+    <style name="Theme.Week2" parent="Base.Theme.Week2"/>
+</resources>

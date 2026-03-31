@@ -1,0 +1,7 @@
+com.example.week2.app-pngs-0 D:\TUK\10th_UMC_Android\jongyee\Week2\app\build\generated\res\pngs\debug
+com.example.week2.app-updated_navigation_xml-1 D:\TUK\10th_UMC_Android\jongyee\Week2\app\build\generated\updated_navigation_xml\debug
+com.example.week2.app-packageDebugResources-2 D:\TUK\10th_UMC_Android\jongyee\Week2\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.week2.app-packageDebugResources-3 D:\TUK\10th_UMC_Android\jongyee\Week2\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.week2.app-debug-4 D:\TUK\10th_UMC_Android\jongyee\Week2\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.example.week2.app-debug-5 D:\TUK\10th_UMC_Android\jongyee\Week2\app\src\debug\res
+com.example.week2.app-main-6 D:\TUK\10th_UMC_Android\jongyee\Week2\app\src\main\res

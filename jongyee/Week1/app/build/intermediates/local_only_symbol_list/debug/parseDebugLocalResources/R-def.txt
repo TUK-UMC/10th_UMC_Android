@@ -1,0 +1,33 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color white
+drawable ic_angry
+drawable ic_anxious
+drawable ic_excited
+drawable ic_happy
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+drawable ic_normal
+id iv_angry
+id iv_anxious
+id iv_back
+id iv_excited
+id iv_happy
+id iv_normal
+id tv_angry
+id tv_anxious
+id tv_desc
+id tv_excited
+id tv_happy
+id tv_main_title
+id tv_normal
+id tv_sub_title
+layout activity_main
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Base.Theme.Week1
+style Theme.Week1
+xml backup_rules
+xml data_extraction_rules
