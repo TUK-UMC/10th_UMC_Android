@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.week3.fragment.HomeFragment
 import com.example.week3.fragment.ShopFragment
-import com.example.week3.fragment.WishlistFragment
+import com.example.week3.wishlist.WishlistFragment
 import com.example.week3.fragment.BagFragment
 import com.example.week3.fragment.ProfileFragment
 import com.example.week3.databinding.ActivityMainBinding

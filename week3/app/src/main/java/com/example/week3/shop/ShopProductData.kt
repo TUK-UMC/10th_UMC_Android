@@ -7,5 +7,6 @@ data class ShopProductData(
     val name: String,
     val category: String,
     val colors: String,
-    val price: String
+    val price: String,
+    var isFavorite: Boolean = false
 )
