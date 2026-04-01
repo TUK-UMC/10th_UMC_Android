@@ -23,7 +23,6 @@ class ProfileEditFragment : Fragment() {
         return binding.root
     }
 
-
     // UI 초기화 및 이벤트 처리
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -34,11 +33,9 @@ class ProfileEditFragment : Fragment() {
 
      //UI 초기 설정
     private fun initUI() {
-
     }
 
      //클릭 이벤트 처리
-
     private fun setupClickListeners() {
 
         // 저장 버튼 클릭
@@ -54,7 +51,7 @@ class ProfileEditFragment : Fragment() {
 
     //프로필 저장 로직
     private fun saveProfile() {
-        // TODO: 데이터 저장 로직 구현
+
     }
 
     //이전 화면으로 돌아가기

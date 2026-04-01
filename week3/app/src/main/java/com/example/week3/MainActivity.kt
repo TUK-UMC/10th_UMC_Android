@@ -9,9 +9,7 @@ import com.example.week3.fragment.WishlistFragment
 import com.example.week3.fragment.BagFragment
 import com.example.week3.fragment.ProfileFragment
 import com.example.week3.databinding.ActivityMainBinding
-import com.example.week3.*
-
-private val fragment: Any
+import com.example.week3.R
 
 class MainActivity : AppCompatActivity() {
 

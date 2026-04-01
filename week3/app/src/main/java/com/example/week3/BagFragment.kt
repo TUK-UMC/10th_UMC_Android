@@ -35,17 +35,8 @@ class BagFragment : Fragment() {
 
     private fun setupClickListeners() {
         binding.btnOrder.setOnClickListener {
-            navigateToShop()
-        }
-    }
 
-     //BottomNavigation을 이용해 Shop 화면으로 이동
-    private fun navigateToShop() {
-         binding.orderBtn.setOnClickListener {
-             parentFragmentManager.beginTransaction()
-                 .replace(R.id.main_fragmentContainer, ShopFragment())
-                 .commit()
-         }
+        }
     }
 
     //메모리 누수 방지를 위해 binding 제거
