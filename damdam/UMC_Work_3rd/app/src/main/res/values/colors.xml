@@ -4,4 +4,6 @@
     <color name="black">#000000</color>
 
     <color name="text_secondary">#888888</color>
+    <color name="item_home_background">#F5F5F5</color>
+    <color name="item_category">#999999</color>
 </resources>

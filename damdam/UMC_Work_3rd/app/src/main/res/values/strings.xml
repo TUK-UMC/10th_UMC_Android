@@ -19,5 +19,8 @@
     <string name="profile_text_edit">프로필 수정</string>
     <string name="wishlist_wish">위시리스트</string>
     <string name="home_text_nike">나이키 최신 상품</string>
+    <string name="item_content">상품 이미지</string>
+    <string name="item_shop_product">상품 이미지</string>
+    <string name="item_shop_wish">위시리스트</string>
 
 </resources>
