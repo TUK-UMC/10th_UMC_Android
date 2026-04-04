@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.sungs.myapplication.BottomNavSelectListener
 import com.sungs.myapplication.R
 import com.sungs.myapplication.databinding.FragmentBagBinding
 
@@ -29,8 +30,7 @@ class BagFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnOrder.setOnClickListener {
-            val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
-            bottomNavigationView.selectedItemId = R.id.nav_shop
+            (activity as? BottomNavSelectListener)?.onShopTabSelected()
         }
     }
 
