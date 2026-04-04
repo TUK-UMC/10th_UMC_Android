@@ -19,7 +19,7 @@ class ShopFragment : Fragment() {
     private var _binding: FragmentShopBinding? = null
     private val binding get() = _binding!!
 
-    // 1. Activity와 공유하는 ViewModel 선언 (ktx 라이브러리 제공 함수 사용)
+    // 1. Activity와 공유하는 ViewModel 선언
     private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
