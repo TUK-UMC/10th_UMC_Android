@@ -1,7 +1,0 @@
-com.example.week1.app-pngs-0 D:\TUK\UMC_10th_iOS\Week1\app\build\generated\res\pngs\debug
-com.example.week1.app-updated_navigation_xml-1 D:\TUK\UMC_10th_iOS\Week1\app\build\generated\updated_navigation_xml\debug
-com.example.week1.app-packageDebugResources-2 D:\TUK\UMC_10th_iOS\Week1\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.example.week1.app-packageDebugResources-3 D:\TUK\UMC_10th_iOS\Week1\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.example.week1.app-debug-4 D:\TUK\UMC_10th_iOS\Week1\app\build\intermediates\merged_res\debug\mergeDebugResources
-com.example.week1.app-debug-5 D:\TUK\UMC_10th_iOS\Week1\app\src\debug\res
-com.example.week1.app-main-6 D:\TUK\UMC_10th_iOS\Week1\app\src\main\res
