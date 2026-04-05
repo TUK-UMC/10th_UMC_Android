@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_home">홈</string>
+    <string name="title_purchase">구매하기</string>
+    <string name="title_wish">위시리스트</string>
+    <string name="title_bag">장바구니</string>
+    <string name="title_profile">프로필</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_discover">Discover</string>
+    <string name="home_date_format">2026년 3월 28일</string>
+    <string name="home_logo">Logo</string>
+    <string name="bag_description">bag</string>
+    <string name="bag_text_empty">장바구니가 비어 있습니다.</string>
+    <string name="bag_text_add">제품을 추가하면 여기에 표시됩니다.</string>
+    <string name="bag_text_order">주문하기</string>
+    <string name="shop_text_wrap">전체</string>
+    <string name="shop_text_tops_shirts"><![CDATA[Tops & T-Shirts]]></string>
+    <string name="shop_text_shoes">Shoes</string>
+    <string name="profile_text_edit">프로필 수정</string>
+    <string name="wishlist_wish">위시리스트</string>
+
+</resources>
