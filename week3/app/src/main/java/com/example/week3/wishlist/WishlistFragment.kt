@@ -16,10 +16,8 @@ class WishlistFragment : Fragment() {
     private var _binding: FragmentWishlistBinding? = null
     private val binding get() = _binding!!
 
-    // 2. 라이브러리 제공 함수를 사용합니다. (뒤에 직접 만든 함수는 삭제하세요!)
+    // 2. 라이브러리 제공 함수를 사용합니다.
     private val sharedViewModel: SharedViewModel by activityViewModels()
-
-    // [삭제됨] private fun activityViewModels()... 코드는 지워야 합니다.
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
