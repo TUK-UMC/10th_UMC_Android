@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.week4.wishlist.WishlistDataStoreManager
 import kotlinx.coroutines.launch
 
-// AndroidViewModel을 상속받아야 DataStore에 필요한 'context'를 사용할 수 있습니다.
 class SharedViewModel(application: Application) : AndroidViewModel(application) {
 
     // 위시리스트 전용 데이터스토어 매니저 초기화
@@ -44,7 +43,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
         // 1. 메모리상의 LiveData 업데이트 (즉시 화면 반영)
         _wishlist.value = currentList
 
-        // 2. [핵심] 금고(DataStore)에 영구 저장 (앱 꺼져도 유지됨)
+        // 2. DataStore에 영구 저장 (앱 꺼져도 유지됨)
         viewModelScope.launch {
             wishlistDataStore.saveWishlist(currentList)
         }
