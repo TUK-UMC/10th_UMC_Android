@@ -39,10 +39,10 @@ class ShopFragment : Fragment() {
     private fun initRecyclerView() {
         // 2. 데이터 리스트 준비
         val shopProductList = arrayListOf(
-            ShopProductData(R.drawable.shop_socks6, false, "Nike Everyday Plus Cushioned", "Training Ankle Socks(6Pairs)", "5 Colours", "US$10", false),
-            ShopProductData(R.drawable.shop_elitesocks, false, "Nike Elite Crew", "Basketball Socks", "7 Colours", "US$16", false),
-            ShopProductData(R.drawable.home_airforce, true, "Nike Air Force 1'07", "Women's Shoes", "5 Colours", "US$115", false),
-            ShopProductData(R.drawable.shop_jodan1, true, "Jordan Essentials", "Mens's Shoes", "2 Colours", "US$115", false)
+            ShopProductData(R.drawable.img_shop_socks6, false, "Nike Everyday Plus Cushioned", "Training Ankle Socks(6Pairs)", "5 Colours", "US$10", false),
+            ShopProductData(R.drawable.img_shop_elitesocks, false, "Nike Elite Crew", "Basketball Socks", "7 Colours", "US$16", false),
+            ShopProductData(R.drawable.img_home_airforce, true, "Nike Air Force 1'07", "Women's Shoes", "5 Colours", "US$115", false),
+            ShopProductData(R.drawable.img_shop_jodan1, true, "Jordan Essentials", "Mens's Shoes", "2 Colours", "US$115", false)
         )
 
         // 3. 어댑터 초기화 (onFavoriteClick과 onItemClick 콜백 구현)

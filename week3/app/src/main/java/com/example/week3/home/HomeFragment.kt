@@ -34,8 +34,8 @@ class HomeFragment : Fragment() {
     private fun initRecyclerView() {
         // 1. 데이터 리스트 생성
         val homeProductList = arrayListOf(
-            HomeProductData(R.drawable.home_airforce, "Nike Air Force 1'07", "US $115"),
-            HomeProductData(R.drawable.home_jordan, "Air Jordan XXXVI", "US $185")
+            HomeProductData(R.drawable.img_home_airforce, "Nike Air Force 1'07", "US $115"),
+            HomeProductData(R.drawable.img_home_jordan, "Air Jordan XXXVI", "US $185")
         )
 
         // 2. 어댑터 초기화 (클릭 시 동작 포함)
