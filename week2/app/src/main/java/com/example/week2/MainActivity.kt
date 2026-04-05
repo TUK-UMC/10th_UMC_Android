@@ -11,8 +11,6 @@ import com.example.week2.fragment.ProfileFragment
 import com.example.week2.databinding.ActivityMainBinding
 import com.example.week2.*
 
-private val fragment: Any
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
