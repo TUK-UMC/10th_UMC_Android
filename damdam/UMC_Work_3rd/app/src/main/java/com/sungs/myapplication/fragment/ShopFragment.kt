@@ -16,6 +16,16 @@ class ShopFragment : Fragment() {
     private var _binding: FragmentShopBinding? = null
     private val binding get() = _binding!!
 
+    val productList = listOf(
+        ProductData("Nike Everyday Plus Cushioned", "Training Crew Socks", "US$22", R.drawable.img_socks_everyday),
+        ProductData("Nike Elite Crew", "Basketball Socks", "US$18", R.drawable.img_socks_elite),
+        ProductData("Air Jordan 1 Mid", "Shoes", "US$125", R.drawable.img_jordan_1_mid),
+        ProductData("Nike Air Force 1 '07", "Shoes", "US$115", R.drawable.img_air_force_1),
+        ProductData("Nike Dunk Low", "Shoes", "US$115", R.drawable.img_dunk_low)
+    )
+
+    private val productAdapter by lazy { ShopProductAdapter(productList) }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,15 +37,7 @@ class ShopFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val productList = listOf(
-            ProductData("Nike Everyday Plus Cushioned", "Training Crew Socks", "US$22", R.drawable.img_socks_everyday),
-            ProductData("Nike Elite Crew", "Basketball Socks", "US$18", R.drawable.img_socks_elite),
-            ProductData("Air Jordan 1 Mid", "Shoes", "US$125", R.drawable.img_jordan_1_mid),
-            ProductData("Nike Air Force 1 '07", "Shoes", "US$115", R.drawable.img_air_force_1),
-            ProductData("Nike Dunk Low", "Shoes", "US$115", R.drawable.img_dunk_low)
-        )
-
-        binding.rvShopProducts.adapter = ShopProductAdapter(productList)
+        binding.rvShopProducts.adapter = productAdapter
         binding.rvShopProducts.layoutManager = GridLayoutManager(requireContext(), 2)
     }
 

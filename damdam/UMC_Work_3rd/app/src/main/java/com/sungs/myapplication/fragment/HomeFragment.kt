@@ -16,6 +16,13 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
+    private val productList = listOf(
+        ProductData("Air Jordan 1000R", "Shoes", "US$189", R.drawable.img_dunk_low),
+        ProductData("Nike Air Force 1 '07", "Shoes", "US$115", R.drawable.img_air_force_1)
+    )
+
+    private val productAdapter by lazy { ProductAdapter(productList) }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,12 +34,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val productList = listOf(
-            ProductData("Air Jordan 1000R", "Shoes", "US$189", R.drawable.img_dunk_low),
-            ProductData("Nike Air Force 1 '07", "Shoes", "US$115", R.drawable.img_air_force_1)
-        )
-
-        binding.rvHomeProducts.adapter = ProductAdapter(productList)
+        binding.rvHomeProducts.adapter = productAdapter
         binding.rvHomeProducts.layoutManager = GridLayoutManager(requireContext(), 2)
     }
 

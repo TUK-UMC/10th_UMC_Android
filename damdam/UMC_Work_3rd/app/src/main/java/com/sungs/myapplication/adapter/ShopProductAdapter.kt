@@ -16,23 +16,21 @@ class ShopProductAdapter(private val productList: List<ProductData>)
     inner class ShopProductViewHolder(private val binding: ItemShopProductBinding)
         : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(product: ProductData, position: Int) {
+        fun bind(product: ProductData) {
             binding.ivProductImage.setImageResource(product.imageResId)
             binding.tvProductCategory.text = product.category
             binding.tvProductName.text = product.name
             binding.tvProductPrice.text = product.price
 
-            // 하트 상태 반영
             binding.ivHeart.setImageResource(
-                if (favoriteStates[position]) R.drawable.ic_heart_filled
+                if (product.isFavorite) R.drawable.ic_heart_filled
                 else R.drawable.ic_heart_outline
             )
 
-            // 하트 클릭 토글
             binding.ivHeart.setOnClickListener {
-                favoriteStates[position] = !favoriteStates[position]
+                product.isFavorite = !product.isFavorite
                 binding.ivHeart.setImageResource(
-                    if (favoriteStates[position]) R.drawable.ic_heart_filled
+                    if (product.isFavorite) R.drawable.ic_heart_filled
                     else R.drawable.ic_heart_outline
                 )
             }
@@ -47,7 +45,7 @@ class ShopProductAdapter(private val productList: List<ProductData>)
     }
 
     override fun onBindViewHolder(holder: ShopProductViewHolder, position: Int) {
-        holder.bind(productList[position], position)
+        holder.bind(productList[position])
     }
 
     override fun getItemCount(): Int = productList.size
