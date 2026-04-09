@@ -23,5 +23,7 @@
     <string name="item_shop_product">상품 이미지</string>
     <string name="item_shop_wish">위시리스트</string>
     <string name="home_whats_new">What\'s new</string>
+    <string name="Tops_text"><![CDATA[Tops & T-Shirts]]></string>
+    <string name="Sale_text">Sale</string>
 
 </resources>
