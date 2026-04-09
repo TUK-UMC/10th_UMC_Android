@@ -7,11 +7,22 @@ import com.sungs.myapplication.R
 import com.sungs.myapplication.data.ProductData
 import com.sungs.myapplication.databinding.ItemShopProductBinding
 
-class ShopProductAdapter(private val productList: List<ProductData>)
-    : RecyclerView.Adapter<ShopProductAdapter.ShopProductViewHolder>() {
+class ShopProductAdapter(
+    private var productList: List<ProductData>,
+    private val onFavoriteClick: (ProductData) -> Unit
+) : RecyclerView.Adapter<ShopProductAdapter.ShopProductViewHolder>() {
 
-    // 각 아이템의 하트 상태 저장
-    private val favoriteStates = BooleanArray(productList.size) { false }
+    private var favoriteNames: Set<String> = emptySet()
+
+    fun updateFavorites(names: Set<String>) {
+        favoriteNames = names
+        notifyDataSetChanged()
+    }
+
+    fun updateProducts(products: List<ProductData>) {
+        productList = products
+        notifyDataSetChanged()
+    }
 
     inner class ShopProductViewHolder(private val binding: ItemShopProductBinding)
         : RecyclerView.ViewHolder(binding.root) {
@@ -22,17 +33,14 @@ class ShopProductAdapter(private val productList: List<ProductData>)
             binding.tvProductName.text = product.name
             binding.tvProductPrice.text = product.price
 
+            val isFav = favoriteNames.contains(product.name)
             binding.ivHeart.setImageResource(
-                if (product.isFavorite) R.drawable.ic_heart_filled
+                if (isFav) R.drawable.ic_heart_filled
                 else R.drawable.ic_heart_outline
             )
 
             binding.ivHeart.setOnClickListener {
-                product.isFavorite = !product.isFavorite
-                binding.ivHeart.setImageResource(
-                    if (product.isFavorite) R.drawable.ic_heart_filled
-                    else R.drawable.ic_heart_outline
-                )
+                onFavoriteClick(product)
             }
         }
     }
