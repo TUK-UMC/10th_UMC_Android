@@ -7,15 +7,19 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.sungs.myapplication.R
 import com.sungs.myapplication.adapter.ShopProductAdapter
 import com.sungs.myapplication.data.ProductData
 import com.sungs.myapplication.data.ProductDataStore
+import com.sungs.myapplication.databinding.FragmentShopAllBinding
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 class ShopAllFragment : Fragment() {
+
+    private var _binding: FragmentShopAllBinding? = null
+    private val binding get() = _binding!!
 
     private val defaultProducts = listOf(
         ProductData("Nike Everyday Plus Cushioned", "Training Crew Socks", "US\$22", R.drawable.img_socks_everyday),
@@ -31,41 +35,40 @@ class ShopAllFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val rv = RecyclerView(requireContext()).apply {
-            layoutManager = GridLayoutManager(requireContext(), 2)
-            clipToPadding = false
-            setPadding(30, 0, 30, 0)
-        }
+        _binding = FragmentShopAllBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        adapter = ShopProductAdapter(emptyList()) { product ->
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        adapter = ShopProductAdapter { product ->
             viewLifecycleOwner.lifecycleScope.launch {
                 ProductDataStore.toggleFavorite(requireContext(), product.name)
             }
         }
-        rv.adapter = adapter
+
+        binding.rvShopAll.layoutManager = GridLayoutManager(requireContext(), 2)
+        binding.rvShopAll.adapter = adapter
 
         viewLifecycleOwner.lifecycleScope.launch {
-            // 초기 데이터 저장
             val existing = ProductDataStore.getShopProducts(requireContext()).first()
             if (existing.isEmpty()) {
                 ProductDataStore.saveShopProducts(requireContext(), defaultProducts)
             }
 
-            // 상품 로드
-            launch {
-                ProductDataStore.getShopProducts(requireContext()).collect { products ->
-                    adapter.updateProducts(products)
+            ProductDataStore.getShopProducts(requireContext())
+                .combine(ProductDataStore.getFavorites(requireContext())) { products, favs ->
+                    products.map { it.copy(isFavorite = favs.contains(it.name)) }
                 }
-            }
-
-            // 즐겨찾기 상태 관찰
-            launch {
-                ProductDataStore.getFavorites(requireContext()).collect { favs ->
-                    adapter.updateFavorites(favs)
+                .collect { updatedProducts ->
+                    adapter.submitList(updatedProducts)
                 }
-            }
         }
+    }
 
-        return rv
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

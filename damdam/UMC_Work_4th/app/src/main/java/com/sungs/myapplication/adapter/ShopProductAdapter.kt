@@ -2,27 +2,16 @@ package com.sungs.myapplication.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sungs.myapplication.R
 import com.sungs.myapplication.data.ProductData
 import com.sungs.myapplication.databinding.ItemShopProductBinding
 
 class ShopProductAdapter(
-    private var productList: List<ProductData>,
     private val onFavoriteClick: (ProductData) -> Unit
-) : RecyclerView.Adapter<ShopProductAdapter.ShopProductViewHolder>() {
-
-    private var favoriteNames: Set<String> = emptySet()
-
-    fun updateFavorites(names: Set<String>) {
-        favoriteNames = names
-        notifyDataSetChanged()
-    }
-
-    fun updateProducts(products: List<ProductData>) {
-        productList = products
-        notifyDataSetChanged()
-    }
+) : ListAdapter<ProductData, ShopProductAdapter.ShopProductViewHolder>(ProductDiffCallback()) {
 
     inner class ShopProductViewHolder(private val binding: ItemShopProductBinding)
         : RecyclerView.ViewHolder(binding.root) {
@@ -33,9 +22,8 @@ class ShopProductAdapter(
             binding.tvProductName.text = product.name
             binding.tvProductPrice.text = product.price
 
-            val isFav = favoriteNames.contains(product.name)
             binding.ivHeart.setImageResource(
-                if (isFav) R.drawable.ic_heart_filled
+                if (product.isFavorite) R.drawable.ic_heart_filled
                 else R.drawable.ic_heart_outline
             )
 
@@ -53,8 +41,16 @@ class ShopProductAdapter(
     }
 
     override fun onBindViewHolder(holder: ShopProductViewHolder, position: Int) {
-        holder.bind(productList[position])
+        holder.bind(getItem(position))
     }
 
-    override fun getItemCount(): Int = productList.size
+    class ProductDiffCallback : DiffUtil.ItemCallback<ProductData>() {
+        override fun areItemsTheSame(oldItem: ProductData, newItem: ProductData): Boolean {
+            return oldItem.name == newItem.name
+        }
+
+        override fun areContentsTheSame(oldItem: ProductData, newItem: ProductData): Boolean {
+            return oldItem == newItem
+        }
+    }
 }
