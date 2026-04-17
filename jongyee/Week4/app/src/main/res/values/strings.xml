@@ -1,0 +1,29 @@
+<resources>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_home">홈</string>
+    <string name="title_buy">구매하기</string>
+    <string name="title_wishlist">위시리스트</string>
+    <string name="title_bag">장바구니</string>
+    <string name="title_profile">프로필</string>
+    <string name="home_discover">Discover</string>
+    <string name="home_date">9월 4일 목요일</string>
+    <string name="buy_all">전체</string>
+    <string name="buy_tops">Tops &amp; T-Shirts</string>
+    <string name="buy_shoes">Shoes</string>
+    <string name="wishlist_title">위시리스트</string>
+    <string name="bag_empty">장바구니가 비어 있습니다.\n제품을 추가하면 여기에 표시됩니다.</string>
+    <string name="btn_order">주문하기</string>
+    <string name="app_name">Nike Week4</string>
+    <string name="btn_select_size">사이즈 선택</string>
+    <string name="btn_add_to_bag">장바구니에 추가</string>
+    <string name="btn_wishlist">위시리스트</string>
+    <string name="profileEdit">프로필 수정</string>
+    <string name="sale">sale</string>
+    <string name="tops_amp_t_shirts"><![CDATA[Tops & T-Shirts]]></string>
+    <string name="all">전체</string>
+    <string name="newProduct">나이키 최신 상품</string>
+    <string name="what_s_new">What\'s new</string>
+    <string name="profile">프로필 수정</string>
+    <string name="wishlist">위시리스트</string>
+    <string name="bestseller">BestSeller</string>
+</resources>
