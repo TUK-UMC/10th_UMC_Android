@@ -12,7 +12,7 @@ object ApiClient {
     private const val BASE_URL = "https://reqres.in/"
 
     // ReqRes에서 발급받은 무료 API key
-    private const val API_KEY = "reqres-free-v1"
+    private const val API_KEY = "pro_193ae0fc84ef064b4f490dd533cc17378cd6566132e584b1de244299c4da6484"
 
     private val apiKeyInterceptor = Interceptor { chain ->
         val newRequest = chain.request().newBuilder()
