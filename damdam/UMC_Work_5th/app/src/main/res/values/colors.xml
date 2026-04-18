@@ -6,4 +6,7 @@
     <color name="text_secondary">#888888</color>
     <color name="item_home_background">#F5F5F5</color>
     <color name="item_category">#999999</color>
+    <color name="profile_avatar">#D9D9D9</color>
+    <color name="profile_vertical">#E0E0E0</color>
+    <color name="profile_edit">#666666</color>
 </resources>
