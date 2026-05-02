@@ -42,7 +42,6 @@ class ShopAllViewModel @Inject constructor(
                 repository.saveShopProducts(defaultProducts)
             }
 
-            // 상품 + 즐겨찾기를 합쳐 isFavorite을 채워준 리스트를 만든다
             repository.getShopProducts()
                 .combine(repository.getFavorites()) { products, favs ->
                     products.map { it.copy(isFavorite = favs.contains(it.name)) }

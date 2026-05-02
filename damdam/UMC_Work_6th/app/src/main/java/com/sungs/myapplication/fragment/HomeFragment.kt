@@ -5,25 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
-import com.sungs.myapplication.R
 import com.sungs.myapplication.adapter.ProductAdapter
-import com.sungs.myapplication.data.ProductData
-import com.sungs.myapplication.data.ProductDataStore
 import com.sungs.myapplication.databinding.FragmentHomeBinding
-import kotlinx.coroutines.flow.first
+import com.sungs.myapplication.viewmodel.HomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private val defaultProducts = listOf(
-        ProductData("Air Jordan 1000R", "Shoes", "US$189", R.drawable.img_dunk_low),
-        ProductData("Nike Air Force 1 '07", "Shoes", "US$115", R.drawable.img_air_force_1)
-    )
+    private val viewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,12 +38,10 @@ class HomeFragment : Fragment() {
         binding.rvHomeProducts.layoutManager = GridLayoutManager(requireContext(), 2)
 
         viewLifecycleOwner.lifecycleScope.launch {
-            val existing = ProductDataStore.getHomeProducts(requireContext()).first()
-            if (existing.isEmpty()) {
-                ProductDataStore.saveHomeProducts(requireContext(), defaultProducts)
-            }
-            ProductDataStore.getHomeProducts(requireContext()).collect { products ->
-                binding.rvHomeProducts.adapter = ProductAdapter(products)
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect { state ->
+                    binding.rvHomeProducts.adapter = ProductAdapter(state.products)
+                }
             }
         }
     }
