@@ -7,4 +7,5 @@
     <color name="profile_vertical">#E0E0E0</color>
     <color name="profile_edit">#666666</color>
     <color name="item_home_background">#F5F5F5</color>
+    <color name="light_gray">#FFEEEEEE</color>
 </resources>
