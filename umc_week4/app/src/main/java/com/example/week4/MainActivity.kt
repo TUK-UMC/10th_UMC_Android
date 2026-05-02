@@ -7,7 +7,7 @@ import com.example.week4.fragment.HomeFragment
 import com.example.week4.fragment.ShopFragment
 import com.example.week4.wishlist.WishlistFragment
 import com.example.week4.fragment.BagFragment
-import com.example.week4.fragment.ProfileFragment
+import com.example.week4.profile.ProfileFragment
 import com.example.week4.databinding.ActivityMainBinding
 import com.example.week4.R
 
