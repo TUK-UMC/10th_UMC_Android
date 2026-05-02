@@ -5,18 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.sungs.myapplication.adapter.ProductAdapter
-import com.sungs.myapplication.data.ProductDataStore
 import com.sungs.myapplication.databinding.FragmentWishlistBinding
-import kotlinx.coroutines.flow.combine
+import com.sungs.myapplication.viewmodel.WishlistViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class WishlistFragment : Fragment() {
 
     private var _binding: FragmentWishlistBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: WishlistViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,14 +38,11 @@ class WishlistFragment : Fragment() {
         binding.rvWishlist.layoutManager = GridLayoutManager(requireContext(), 2)
 
         viewLifecycleOwner.lifecycleScope.launch {
-            // shop 상품 + 즐겨찾기 목록을 combine해서 필터
-            ProductDataStore.getShopProducts(requireContext())
-                .combine(ProductDataStore.getFavorites(requireContext())) { products, favs ->
-                    products.filter { favs.contains(it.name) }
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect { state ->
+                    binding.rvWishlist.adapter = ProductAdapter(state.products)
                 }
-                .collect { wishProducts ->
-                    binding.rvWishlist.adapter = ProductAdapter(wishProducts)
-                }
+            }
         }
     }
 

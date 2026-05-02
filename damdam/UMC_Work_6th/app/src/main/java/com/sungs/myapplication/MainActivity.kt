@@ -9,7 +9,9 @@ import com.sungs.myapplication.fragment.HomeFragment
 import com.sungs.myapplication.fragment.ProfileFragment
 import com.sungs.myapplication.fragment.ShopFragment
 import com.sungs.myapplication.fragment.WishlistFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
