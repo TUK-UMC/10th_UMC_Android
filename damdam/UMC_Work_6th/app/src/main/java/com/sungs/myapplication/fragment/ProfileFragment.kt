@@ -12,7 +12,6 @@ import com.bumptech.glide.Glide
 import com.sungs.myapplication.R
 import com.sungs.myapplication.adapter.FollowAdapter
 import com.sungs.myapplication.databinding.FragmentProfileBinding
-import com.sungs.myapplication.network.ApiClient
 import kotlinx.coroutines.launch
 
 class ProfileFragment : Fragment() {
@@ -60,7 +59,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun loadUserProfile() {
-        viewLifecycleOwner.lifecycleScope.launch {
+       /* viewLifecycleOwner.lifecycleScope.launch {
             try {
                 val response = ApiClient.reqResService.getUser(id = 1)
                 val user = response.data
@@ -75,11 +74,11 @@ class ProfileFragment : Fragment() {
             } catch (e: Exception) {
                 Log.e("ProfileFragment", "유저 로드 실패", e)
             }
-        }
+        }*/
     }
 
     private fun loadFollowingList() {
-        viewLifecycleOwner.lifecycleScope.launch {
+       /* viewLifecycleOwner.lifecycleScope.launch {
             try {
                 val response = ApiClient.reqResService.getUsers(page = 1)
 
@@ -90,7 +89,7 @@ class ProfileFragment : Fragment() {
             } catch (e: Exception) {
                 Log.e("ProfileFragment", "팔로잉 로드 실패", e)
             }
-        }
+        }*/
     }
 
     override fun onDestroyView() {
