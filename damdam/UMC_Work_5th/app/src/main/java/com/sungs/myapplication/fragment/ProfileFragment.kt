@@ -61,18 +61,16 @@ class ProfileFragment : Fragment() {
 
     private fun loadUserProfile() {
         viewLifecycleOwner.lifecycleScope.launch {
-            try {
-                val response = ApiClient.reqResService.getUser(id = 1)
+            runCatching {
+                ApiClient.reqResService.getUser(id = 1)
+            }.onSuccess { response ->
                 val user = response.data
-
                 binding.tvProfileNickname.text = "${user.firstName} ${user.lastName}"
-
                 Glide.with(binding.ivProfileAvatar)
                     .load(user.avatar)
                     .into(binding.ivProfileAvatar)
-
                 Log.d("ProfileFragment", "유저 로드 성공: $user")
-            } catch (e: Exception) {
+            }.onFailure { e ->
                 Log.e("ProfileFragment", "유저 로드 실패", e)
             }
         }
@@ -80,14 +78,13 @@ class ProfileFragment : Fragment() {
 
     private fun loadFollowingList() {
         viewLifecycleOwner.lifecycleScope.launch {
-            try {
-                val response = ApiClient.reqResService.getUsers(page = 1)
-
+            runCatching {
+                ApiClient.reqResService.getUsers(page = 1)
+            }.onSuccess { response ->
                 followAdapter.submitList(response.data)
                 binding.tvFollowingCount.text = "팔로잉 (${response.data.size})"
-
                 Log.d("ProfileFragment", "팔로잉 로드 성공: ${response.data.size}명")
-            } catch (e: Exception) {
+            }.onFailure { e ->
                 Log.e("ProfileFragment", "팔로잉 로드 실패", e)
             }
         }
