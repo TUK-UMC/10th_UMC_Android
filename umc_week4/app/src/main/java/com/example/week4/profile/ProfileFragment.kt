@@ -27,8 +27,18 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // RecyclerView 연결 추가
+        binding.rvFollowing.apply {
+            adapter = followAdapter
+            layoutManager = LinearLayoutManager(
+                requireContext(), LinearLayoutManager.HORIZONTAL, false
+            )
+        }
 
         // userId 1번 정보 가져오기
         viewLifecycleOwner.lifecycleScope.launch {
@@ -46,6 +56,10 @@ class ProfileFragment : Fragment() {
                 // 2. 닉네임 표시 (first name + last name)
                 val fullName = "${user.firstName} ${user.lastName}"
                 binding.tvProfileName.text = fullName // XML의 텍스트뷰 ID 확인
+
+                // 팔로잉 리스트 추가
+                val listResponse = ApiClient.reqResService.getUsers(1)
+                followAdapter.submitList(listResponse.data)
 
             } catch (e: Exception) {
                 Log.e("API_ERROR", "1번 유저 데이터를 가져오는데 실패했습니다: ${e.message}")

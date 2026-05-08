@@ -19,7 +19,8 @@ import java.util.concurrent.TimeUnit
                 chain.proceed(request)
             }
             .addInterceptor(HttpLoggingInterceptor().apply {
-                level = HttpLoggingInterceptor.Level.BODY
+                level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
+                else HttpLoggingInterceptor.Level.NONE
             })
             .connectTimeout(30, TimeUnit.SECONDS)
             .build()
