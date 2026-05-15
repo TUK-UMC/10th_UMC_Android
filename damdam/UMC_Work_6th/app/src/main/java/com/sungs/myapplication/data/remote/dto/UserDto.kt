@@ -1,4 +1,4 @@
-package com.sungs.myapplication.data
+package com.sungs.myapplication.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
 

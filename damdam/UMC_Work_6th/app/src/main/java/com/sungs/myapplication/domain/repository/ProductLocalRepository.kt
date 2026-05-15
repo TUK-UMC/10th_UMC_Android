@@ -1,6 +1,6 @@
 package com.sungs.myapplication.domain.repository
 
-import com.sungs.myapplication.data.ProductData
+import com.sungs.myapplication.data.model.ProductData
 import kotlinx.coroutines.flow.Flow
 
 

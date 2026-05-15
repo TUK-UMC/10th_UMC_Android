@@ -24,6 +24,8 @@ class HomeFragment : Fragment() {
 
     private val viewModel: HomeViewModel by viewModels()
 
+    private val productAdapter = ProductAdapter()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,12 +37,22 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.rvHomeProducts.layoutManager = GridLayoutManager(requireContext(), 2)
+        setupRecyclerView()
+        observeUiState()
+    }
 
+    private fun setupRecyclerView() {
+        binding.rvHomeProducts.apply {
+            layoutManager = GridLayoutManager(requireContext(), 2)
+            adapter = productAdapter
+        }
+    }
+
+    private fun observeUiState() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect { state ->
-                    binding.rvHomeProducts.adapter = ProductAdapter(state.products)
+                    productAdapter.submitList(state.products)
                 }
             }
         }

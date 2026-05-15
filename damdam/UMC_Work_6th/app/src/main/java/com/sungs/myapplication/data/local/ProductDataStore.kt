@@ -1,4 +1,4 @@
-package com.sungs.myapplication.data
+package com.sungs.myapplication.data.local
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -8,30 +8,38 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.sungs.myapplication.data.model.ProductData
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
+import javax.inject.Singleton
 
-// Context 확장 프로퍼티로 DataStore 싱글톤 생성
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "product_prefs")
 
-object ProductDataStore {
+@Singleton
+class ProductDataStore @Inject constructor(
+    @ApplicationContext private val context: Context
+) {
 
     private val gson = Gson()
 
     // 키 정의
-    private val HOME_PRODUCTS_KEY = stringPreferencesKey("home_products")
-    private val SHOP_PRODUCTS_KEY = stringPreferencesKey("shop_products")
-    private val FAVORITE_NAMES_KEY = stringPreferencesKey("favorite_names")
+    private companion object {
+        val HOME_PRODUCTS_KEY = stringPreferencesKey("home_products")
+        val SHOP_PRODUCTS_KEY = stringPreferencesKey("shop_products")
+        val FAVORITE_NAMES_KEY = stringPreferencesKey("favorite_names")
+    }
 
     // ── 상품 리스트 저장/로드 ──
 
-    suspend fun saveHomeProducts(context: Context, products: List<ProductData>) {
+    suspend fun saveHomeProducts(products: List<ProductData>) {
         context.dataStore.edit { prefs ->
             prefs[HOME_PRODUCTS_KEY] = gson.toJson(products)
         }
     }
 
-    fun getHomeProducts(context: Context): Flow<List<ProductData>> {
+    fun getHomeProducts(): Flow<List<ProductData>> {
         return context.dataStore.data.map { prefs ->
             val json = prefs[HOME_PRODUCTS_KEY]
             if (json != null) {
@@ -40,13 +48,13 @@ object ProductDataStore {
         }
     }
 
-    suspend fun saveShopProducts(context: Context, products: List<ProductData>) {
+    suspend fun saveShopProducts(products: List<ProductData>) {
         context.dataStore.edit { prefs ->
             prefs[SHOP_PRODUCTS_KEY] = gson.toJson(products)
         }
     }
 
-    fun getShopProducts(context: Context): Flow<List<ProductData>> {
+    fun getShopProducts(): Flow<List<ProductData>> {
         return context.dataStore.data.map { prefs ->
             val json = prefs[SHOP_PRODUCTS_KEY]
             if (json != null) {
@@ -56,15 +64,14 @@ object ProductDataStore {
     }
 
     // ── 즐겨찾기(하트) 관리 ──
-    // 즐겨찾기된 상품의 name을 Set으로 저장
 
-    suspend fun saveFavorites(context: Context, favoriteNames: Set<String>) {
+    suspend fun saveFavorites(favoriteNames: Set<String>) {
         context.dataStore.edit { prefs ->
             prefs[FAVORITE_NAMES_KEY] = gson.toJson(favoriteNames.toList())
         }
     }
 
-    fun getFavorites(context: Context): Flow<Set<String>> {
+    fun getFavorites(): Flow<Set<String>> {
         return context.dataStore.data.map { prefs ->
             val json = prefs[FAVORITE_NAMES_KEY]
             if (json != null) {
@@ -74,7 +81,7 @@ object ProductDataStore {
         }
     }
 
-    suspend fun toggleFavorite(context: Context, productName: String) {
+    suspend fun toggleFavorite(productName: String) {
         context.dataStore.edit { prefs ->
             val json = prefs[FAVORITE_NAMES_KEY]
             val current: MutableSet<String> = if (json != null) {

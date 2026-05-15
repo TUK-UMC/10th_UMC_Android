@@ -1,4 +1,4 @@
-package com.sungs.myapplication.data
+package com.sungs.myapplication.data.model
 
 data class ProductData(
     val name: String,

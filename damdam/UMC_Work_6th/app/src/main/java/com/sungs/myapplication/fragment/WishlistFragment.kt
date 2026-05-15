@@ -24,6 +24,8 @@ class WishlistFragment : Fragment() {
 
     private val viewModel: WishlistViewModel by viewModels()
 
+    private val productAdapter = ProductAdapter()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,12 +37,22 @@ class WishlistFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.rvWishlist.layoutManager = GridLayoutManager(requireContext(), 2)
+        setupRecyclerView()
+        observeUiState()
+    }
 
+    private fun setupRecyclerView() {
+        binding.rvWishlist.apply {
+            layoutManager = GridLayoutManager(requireContext(), 2)
+            adapter = productAdapter
+        }
+    }
+
+    private fun observeUiState() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect { state ->
-                    binding.rvWishlist.adapter = ProductAdapter(state.products)
+                    productAdapter.submitList(state.products)
                 }
             }
         }

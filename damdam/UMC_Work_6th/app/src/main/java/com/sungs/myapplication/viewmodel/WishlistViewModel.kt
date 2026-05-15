@@ -2,7 +2,7 @@ package com.sungs.myapplication.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sungs.myapplication.data.ProductData
+import com.sungs.myapplication.data.model.ProductData
 import com.sungs.myapplication.domain.repository.ProductLocalRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
