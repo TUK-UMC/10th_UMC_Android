@@ -1,0 +1,4 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Compose 사용 시 시스템 윈도우 기본 테마. ActionBar 없는 Material3 베이스. -->
+    <style name="Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar" />
+</resources>
