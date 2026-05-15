@@ -1,20 +1,4 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
-    <style name="BottomNav_NoIndicator">
-        <item name="color">@android:color/transparent</item>
-    </style>
-    <style name="Theme.MyApplication" parent="Base.Theme.MyApplication" />
-
-    <style name="MyCustomBottomNav" parent="Widget.MaterialComponents.BottomNavigationView">
-        <item name="itemBackground">@android:color/white</item>
-        <item name="itemRippleColor">@android:color/transparent</item>
-        <item name="itemActiveIndicatorStyle">@style/BottomNav_NoIndicator</item>
-        <item name="itemIconTint">@color/bottom_nav_colors</item>
-        <item name="itemTextColor">@color/bottom_nav_colors</item>
-        <item name="labelVisibilityMode">labeled</item>
-    </style>
+    <!-- Compose 사용 시 시스템 윈도우 기본 테마. ActionBar 없는 Material3 베이스. -->
+    <style name="Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar" />
 </resources>
