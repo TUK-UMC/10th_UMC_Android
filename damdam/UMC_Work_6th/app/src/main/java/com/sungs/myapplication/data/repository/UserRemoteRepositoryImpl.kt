@@ -1,6 +1,6 @@
 package com.sungs.myapplication.data.repository
 
-import com.sungs.myapplication.data.UserData
+import com.sungs.myapplication.data.remote.dto.UserData
 import com.sungs.myapplication.domain.repository.UserRemoteRepository
 import com.sungs.myapplication.network.ReqResService
 import javax.inject.Inject

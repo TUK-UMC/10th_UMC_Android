@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.sungs.myapplication.data.UserData
+import com.sungs.myapplication.data.remote.dto.UserData
 import com.sungs.myapplication.databinding.ItemFollowBinding
 
 class FollowAdapter

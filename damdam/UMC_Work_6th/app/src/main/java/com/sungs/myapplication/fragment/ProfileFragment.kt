@@ -68,15 +68,15 @@ class ProfileFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect { state ->
-                    // 유저 프로필
+                    binding.tvProfileNickname.text = state.nicknameText
                     state.user?.let { user ->
-                        binding.tvProfileNickname.text = "${user.firstName} ${user.lastName}"
                         Glide.with(binding.ivProfileAvatar)
                             .load(user.avatar)
                             .into(binding.ivProfileAvatar)
                     }
+
                     followAdapter.submitList(state.following)
-                    binding.tvFollowingCount.text = "팔로잉 (${state.following.size})"
+                    binding.tvFollowingCount.text = state.followingCountText
                 }
             }
         }

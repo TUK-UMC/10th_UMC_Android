@@ -1,7 +1,7 @@
 package com.sungs.myapplication.network
 
-import com.sungs.myapplication.data.UserListResponse
-import com.sungs.myapplication.data.UserResponse
+import com.sungs.myapplication.data.remote.dto.UserListResponse
+import com.sungs.myapplication.data.remote.dto.UserResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

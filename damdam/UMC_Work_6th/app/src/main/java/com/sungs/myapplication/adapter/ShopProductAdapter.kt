@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sungs.myapplication.R
-import com.sungs.myapplication.data.ProductData
+import com.sungs.myapplication.data.model.ProductData
 import com.sungs.myapplication.databinding.ItemShopProductBinding
 
 class ShopProductAdapter(

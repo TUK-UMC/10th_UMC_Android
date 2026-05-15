@@ -2,12 +2,14 @@ package com.sungs.myapplication.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.sungs.myapplication.data.ProductData
+import com.sungs.myapplication.data.model.ProductData
 import com.sungs.myapplication.databinding.ItemProductBinding
 
-class ProductAdapter(private val productList: List<ProductData>)
-    : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+class ProductAdapter
+    : ListAdapter<ProductData, ProductAdapter.ProductViewHolder>(ProductDiffCallback()) {
 
     inner class ProductViewHolder(private val binding: ItemProductBinding)
         : RecyclerView.ViewHolder(binding.root) {
@@ -28,8 +30,16 @@ class ProductAdapter(private val productList: List<ProductData>)
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        holder.bind(productList[position])
+        holder.bind(getItem(position))
     }
 
-    override fun getItemCount(): Int = productList.size
+    class ProductDiffCallback : DiffUtil.ItemCallback<ProductData>() {
+        override fun areItemsTheSame(oldItem: ProductData, newItem: ProductData): Boolean {
+            return oldItem.name == newItem.name
+        }
+
+        override fun areContentsTheSame(oldItem: ProductData, newItem: ProductData): Boolean {
+            return oldItem == newItem
+        }
+    }
 }

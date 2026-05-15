@@ -1,37 +1,35 @@
 package com.sungs.myapplication.data.repository
 
-import android.content.Context
-import com.sungs.myapplication.data.ProductData
-import com.sungs.myapplication.data.ProductDataStore
+import com.sungs.myapplication.data.model.ProductData
+import com.sungs.myapplication.data.local.ProductDataStore
 import com.sungs.myapplication.domain.repository.ProductLocalRepository
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class ProductLocalRepositoryImpl @Inject constructor(
-    @ApplicationContext private val context: Context
+    private val productDataStore: ProductDataStore
 ) : ProductLocalRepository {
 
     override fun getHomeProducts(): Flow<List<ProductData>> =
-        ProductDataStore.getHomeProducts(context)
+        productDataStore.getHomeProducts()
 
     override suspend fun saveHomeProducts(products: List<ProductData>) {
-        ProductDataStore.saveHomeProducts(context, products)
+        productDataStore.saveHomeProducts(products)
     }
 
     override fun getShopProducts(): Flow<List<ProductData>> =
-        ProductDataStore.getShopProducts(context)
+        productDataStore.getShopProducts()
 
     override suspend fun saveShopProducts(products: List<ProductData>) {
-        ProductDataStore.saveShopProducts(context, products)
+        productDataStore.saveShopProducts(products)
     }
 
     override fun getFavorites(): Flow<Set<String>> =
-        ProductDataStore.getFavorites(context)
+        productDataStore.getFavorites()
 
     override suspend fun toggleFavorite(productName: String) {
-        ProductDataStore.toggleFavorite(context, productName)
+        productDataStore.toggleFavorite(productName)
     }
 }
