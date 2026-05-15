@@ -10,7 +10,11 @@ import com.sungs.myapplication.fragment.ProfileFragment
 import com.sungs.myapplication.fragment.ShopFragment
 import com.sungs.myapplication.fragment.WishlistFragment
 
-class MainActivity : AppCompatActivity() {
+
+interface BottomNavSelectListener {
+    fun onShopTabSelected()
+}
+class MainActivity : AppCompatActivity(), BottomNavSelectListener {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -41,5 +45,9 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()
+    }
+
+    override fun onShopTabSelected() {
+        binding.bottomNav.selectedItemId = R.id.nav_shop
     }
 }

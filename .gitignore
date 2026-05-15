@@ -1,13 +1,9 @@
-### Android ###
-# Gradle files
-.gradle/
-build/
-
 # Local configuration file (sdk path, etc)
 local.properties
 
 # Log/OS Files
 *.log
+
 
 # Android Studio generated files and folders
 captures/
@@ -160,3 +156,21 @@ fabric.properties
 ### AndroidStudio Patch ###
 
 !/gradle/wrapper/gradle-wrapper.jar
+>>>>>>> 2a96d4d10d067d9d6f6e11c7ccc83471c3badf0f
+=======
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+>>>>>>> parent of d2332e5 (UMC_1week)
