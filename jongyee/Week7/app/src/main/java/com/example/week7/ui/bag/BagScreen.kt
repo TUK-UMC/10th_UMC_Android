@@ -18,18 +18,21 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.week7.R
+import com.example.week7.ui.theme.NikeBlack
+import com.example.week7.ui.theme.NikeWhite
 
 @Composable
 fun BagScreen(onNavigateToBuy: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(NikeWhite)
     ) {
         Column(
             modifier = Modifier.align(Alignment.Center),
@@ -39,11 +42,11 @@ fun BagScreen(onNavigateToBuy: () -> Unit) {
                 imageVector = Icons.Default.ShoppingBag,
                 contentDescription = null,
                 modifier = Modifier.size(60.dp),
-                tint = Color.Black
+                tint = NikeBlack
             )
             Spacer(Modifier.height(27.dp))
             Text(
-                text = "장바구니가 비어 있습니다.\n제품을 추가하면 여기에 표시됩니다.",
+                text = stringResource(R.string.bag_empty_message),
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center
@@ -54,13 +57,13 @@ fun BagScreen(onNavigateToBuy: () -> Unit) {
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .fillMaxWidth()
-                .padding(start = 24.dp, end = 24.dp, bottom = 32.dp)
+                .padding(horizontal = 24.dp, vertical = 32.dp)
                 .height(60.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+            colors = ButtonDefaults.buttonColors(containerColor = NikeBlack)
         ) {
             Text(
-                text = "주문하기",
-                color = Color.White,
+                text = stringResource(R.string.bag_order_button),
+                color = NikeWhite,
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold
             )

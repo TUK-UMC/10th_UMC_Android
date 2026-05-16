@@ -17,31 +17,33 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.week7.ui.theme.NikeBlack
 import com.example.week7.ui.theme.NikeGray
+import com.example.week7.ui.theme.NikeWhite
+
+private val tabs = listOf("전체", "Tops & T-Shirts", "Shoes")
 
 @Composable
 fun BuyScreen() {
     var selectedTab by remember { mutableIntStateOf(0) }
-    val tabs = listOf("전체", "Tops & T-Shirts", "Shoes")
 
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(NikeWhite)
     ) {
         Spacer(Modifier.height(65.dp))
         ScrollableTabRow(
             selectedTabIndex = selectedTab,
-            containerColor = Color.White,
-            contentColor = Color.Black,
+            containerColor = NikeWhite,
+            contentColor = NikeBlack,
             edgePadding = 0.dp,
             indicator = { tabPositions ->
                 SecondaryIndicator(
                     modifier = Modifier.tabIndicatorOffset(tabPositions[selectedTab]),
-                    color = Color.Black,
+                    color = NikeBlack,
                     height = 3.dp
                 )
             },
@@ -54,7 +56,7 @@ fun BuyScreen() {
                     text = {
                         Text(
                             text = title,
-                            color = if (selectedTab == index) Color.Black else NikeGray,
+                            color = if (selectedTab == index) NikeBlack else NikeGray,
                             fontWeight = if (selectedTab == index) FontWeight.Bold else FontWeight.Normal
                         )
                     }

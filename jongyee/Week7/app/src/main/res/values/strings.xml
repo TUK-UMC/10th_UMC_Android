@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Week7</string>
+    <string name="home_title">Discover</string>
+    <string name="home_date">9월 4일 목요일</string>
+    <string name="home_image_description">Nike 추천 상품 이미지</string>
+    <string name="bag_empty_message">장바구니가 비어 있습니다.\n제품을 추가하면 여기에 표시됩니다.</string>
+    <string name="bag_order_button">주문하기</string>
 </resources>

@@ -16,7 +16,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.compose.NavHost
@@ -28,7 +27,9 @@ import com.example.week7.ui.bag.BagScreen
 import com.example.week7.ui.buy.BuyScreen
 import com.example.week7.ui.home.HomeScreen
 import com.example.week7.ui.profile.ProfileScreen
+import com.example.week7.ui.theme.NikeBlack
 import com.example.week7.ui.theme.NikeGray
+import com.example.week7.ui.theme.NikeWhite
 import com.example.week7.ui.wishlist.WishlistScreen
 
 private data class BottomNavItem(
@@ -53,7 +54,7 @@ fun MainScreen() {
 
     Scaffold(
         bottomBar = {
-            NavigationBar(containerColor = Color.White) {
+            NavigationBar(containerColor = NikeWhite) {
                 bottomNavItems.forEach { item ->
                     val selected = currentDestination?.hasRoute(item.destination::class) == true
                     NavigationBarItem(
@@ -70,11 +71,11 @@ fun MainScreen() {
                         },
                         label = { Text(item.label) },
                         colors = NavigationBarItemDefaults.colors(
-                            selectedIconColor = Color.Black,
-                            selectedTextColor = Color.Black,
+                            selectedIconColor = NikeBlack,
+                            selectedTextColor = NikeBlack,
                             unselectedIconColor = NikeGray,
                             unselectedTextColor = NikeGray,
-                            indicatorColor = Color.White,
+                            indicatorColor = NikeWhite,
                         )
                     )
                 }

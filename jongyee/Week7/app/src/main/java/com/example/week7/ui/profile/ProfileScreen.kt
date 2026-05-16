@@ -11,29 +11,33 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.week7.ui.theme.NikeBlack
+import com.example.week7.ui.theme.NikeWhite
 
 @Composable
 fun ProfileScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White),
+            .background(NikeWhite),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(Modifier.height(100.dp))
         Text(
             text = "프로필",
-            fontSize = 20.sp
+            color = NikeBlack,
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold
         )
         Spacer(Modifier.height(30.dp))
         Button(
             onClick = {},
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+            colors = ButtonDefaults.buttonColors(containerColor = NikeBlack)
         ) {
-            Text(text = "프로필 수정", color = Color.White)
+            Text(text = "프로필 수정", color = NikeWhite)
         }
     }
 }

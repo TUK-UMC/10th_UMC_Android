@@ -11,41 +11,43 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.week7.R
+import com.example.week7.ui.theme.NikeBlack
 import com.example.week7.ui.theme.NikeGray
+import com.example.week7.ui.theme.NikeWhite
 
 @Composable
 fun HomeScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(NikeWhite)
     ) {
         Column(
-            modifier = Modifier.padding(start = 24.dp, top = 50.dp, end = 24.dp, bottom = 50.dp)
+            modifier = Modifier.padding(horizontal = 24.dp, vertical = 50.dp)
         ) {
             Text(
-                text = "Discover",
-                color = Color.Black,
+                text = stringResource(R.string.home_title),
+                color = NikeBlack,
                 fontSize = 28.sp,
                 fontWeight = FontWeight.Bold
             )
             Spacer(Modifier.height(8.dp))
             Text(
-                text = "9월 4일 목요일",
+                text = stringResource(R.string.home_date),
                 color = NikeGray,
                 fontSize = 16.sp
             )
         }
         Image(
             painter = painterResource(id = R.drawable.image),
-            contentDescription = null,
+            contentDescription = stringResource(R.string.home_image_description),
             modifier = Modifier.fillMaxWidth(),
             contentScale = ContentScale.FillWidth
         )
